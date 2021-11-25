@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Login from "./Login.css";
 
 const Signin = () => {
-  const handleSubmit = () => {
-    const email = document.getElementsByClassName("input").input;
-    const password = document.getElementsByClassName("password").input;
-    let message;
-    if (email === 0 && password === 0) {
-      return (message = "inpute is empty");
+  let [message, setMessage] = useState();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const input = document.getElementsByClassName("input")[0][1];
+
+    if (!input) {
+      return setMessage((message = "Input is empty"));
     } else {
-      return alert("submitted");
+      return setMessage((message = "Submitted"));
     }
   };
 
@@ -44,6 +46,7 @@ const Signin = () => {
               Password
             </a>
           </small>
+          <p className="message">{message}</p>
         </form>
       </section>
     </>
