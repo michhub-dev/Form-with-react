@@ -2,6 +2,17 @@ import React from "react";
 import Login from "./Login.css";
 
 const Signin = () => {
+  const handleSubmit = () => {
+    const email = document.getElementsByClassName("input").input;
+    const password = document.getElementsByClassName("password").input;
+    let message;
+    if (email === 0 && password === 0) {
+      return (message = "inpute is empty");
+    } else {
+      return alert("submitted");
+    }
+  };
+
   return (
     <>
       <section className="Container">
@@ -24,7 +35,7 @@ const Signin = () => {
             Remember me
           </label>
           <br />
-          <button type="submit" className="btn">
+          <button type="submit" className="btn" onClick={handleSubmit}>
             Submit
           </button>
           <small className="small">
