@@ -6,38 +6,42 @@ const Signin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const input = document.getElementsByClassName("input")[0][1];
-
-    if (!input) {
-      return setMessage((message = "Input is empty"));
-    } else {
-      return setMessage((message = "Submitted"));
-    }
+    return setMessage((message = "Submitted"));
   };
 
   return (
     <>
       <section className="Container">
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <h3 className="h3">Sign In</h3>
           <label htmlFor="email" className="email">
             Email address
           </label>
           <br />
-          <input type="email" className="input" placeholder="email address" />
+          <input
+            type="email"
+            className="input"
+            placeholder="email address"
+            required
+          />
           <br />
           <label htmlFor="password" className="password">
             Password
           </label>
           <br />
-          <input type="password" className="input" placeholder="password" />
+          <input
+            type="password"
+            className="input"
+            placeholder="password"
+            required
+          />
           <br />
           <input type="checkbox" />
           <label htmlFor="checkbox" className="remind-me">
             Remember me
           </label>
           <br />
-          <button type="submit" className="btn" onClick={handleSubmit}>
+          <button type="submit" className="btn">
             Submit
           </button>
           <small className="small">
